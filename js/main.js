@@ -5,15 +5,12 @@
     var adapter = new WebSqlAdapter();
     // var adapter = new MemoryAdapter();
     adapter.initialize().done(function () {
-        console.log("Data adapter initialized");
+        showAlert("Data adapter initialized");
     });
 
 
     /* --------------------------------- Event Registration -------------------------------- */
     $('.search-key').on('keyup', findByName);
-    $('#alert').click(function() {
-        showAlert('You clicked on the button', 'Directory');
-    });
 
 
     /* ---------------------------------- Local Functions ---------------------------------- */
