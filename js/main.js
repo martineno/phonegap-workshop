@@ -1,5 +1,5 @@
 // We use an "Immediate Function" to initialize the application to avoid leaving anything behind in the global scope
-/*global Handlebars, $, MemoryAdapter */
+/*global Handlebars, $, MemoryAdapter, HomeView */
 
 (function () {
 
@@ -8,7 +8,7 @@
     var employeeLiTpl = Handlebars.compile($('#employee-li-tpl').html());
     var adapter = new MemoryAdapter();
     adapter.initialize().done(function () {
-        renderHomeView();
+        $('body').html(new HomeView(adapter, homeTpl, employeeLiTpl).render().el);
     });
 
 
@@ -16,11 +16,7 @@
 
 
     /* ---------------------------------- Local Functions ---------------------------------- */
-    function findByName() {
-        adapter.findByName($('.search-key').val()).done(function (employees) {
-            $('.employee-list').html(employeeLiTpl(employees));
-        });
-    }
+
 
     function showAlert(message, title) {
         if (navigator.notification) {
@@ -28,11 +24,6 @@
         } else {
             alert(title ? title + ': ' + message : message);
         }
-    }
-
-    function renderHomeView() {
-        $('body').html(homeTpl());
-        $('.search-key').on('keyup', findByName);
     }
 
 }());
