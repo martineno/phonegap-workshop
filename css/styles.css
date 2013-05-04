@@ -69,3 +69,13 @@ ul {
     padding: 0px;
     margin: 0px;
 }
+
+.scroller {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    position: absolute;
+    top: 142px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
