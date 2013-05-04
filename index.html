@@ -19,11 +19,30 @@
     {{/.}}
 </script>
 
+<script id="employee-tpl" type="text/x-handlebars-template">
+    <div class="dark-header-bar">
+        <a href="#" class="dark-button header-button-left">List</a>
+        <p class="header-bar-title">Employee</p>
+    </div>
+    <div class='details scroller'>
+        <img class='employee-image' src='pics/{{firstName}}_{{lastName}}.jpg'/>
+        <h1>{{firstName}} {{lastName}}</h1>
+        <h2>{{title}}</h2>
+        <span class="location"></span>
+        <ul class="light-combo-drop list">
+            <li><a href="tel:{{officePhone}}">Call Office<br/>{{officePhone}}</a></li>
+            <li><a href="tel:{{cellPhone}}">Call Cell<br/>{{cellPhone}}</a></li>
+            <li><a href="sms:{{cellPhone}}">SMS<br/>{{cellPhone}}</a></li>
+        </ul>
+    </div>
+</script>
+
 <script src="phonegap.js"></script>
 <script src="lib/handlebars.js"></script>
 <script src="lib/jquery-1.9.1.min.js"></script>
 <script src="js/adapters/memory-adapter.js"></script>
 <script src="js/HomeView.js"></script>
+<script src="js/EmployeeView.js"></script>
 <script src="js/main.js"></script>
 
 </body>
