@@ -2,15 +2,13 @@
 (function () {
 
     /* ---------------------------------- Local Variables ---------------------------------- */
-    var adapter = new WebSqlAdapter();
-    // var adapter = new MemoryAdapter();
+    var adapter = new MemoryAdapter();
     adapter.initialize().done(function () {
-        showAlert("Data adapter initialized");
+        renderHomeView();
     });
 
 
     /* --------------------------------- Event Registration -------------------------------- */
-    $('.search-key').on('keyup', findByName);
 
 
     /* ---------------------------------- Local Functions ---------------------------------- */
@@ -34,5 +32,15 @@
         }
     }
 
+    function renderHomeView() {
+        var html =
+                "<div class='header'><h1>Directory</h1></div>" +
+                "<div class='search-view'>" +
+                "<input class='search-key' type='search' placeholder='Enter name'/>" +
+                "<ul class='list employee-list'></ul>" +
+                "</div>"
+        $('body').html(html);
+        $('.search-key').on('keyup', findByName);
+    }
 
 }());
