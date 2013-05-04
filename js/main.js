@@ -11,6 +11,9 @@
 
     /* --------------------------------- Event Registration -------------------------------- */
     $('.search-key').on('keyup', findByName);
+    $('#alert').click(function() {
+        showAlert('You clicked on the button', 'Directory');
+    });
 
 
     /* ---------------------------------- Local Functions ---------------------------------- */
@@ -34,5 +37,5 @@
         }
     }
 
-    showAlert('Hello', 'World');
+
 }());
